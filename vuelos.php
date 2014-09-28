@@ -5,10 +5,10 @@
 
 	<div class="container">
 	<ol class="breadcrumb">
-  <li><a class="bluelink" href="index.php">Home</a></li>
-  <li class="active">Vuelos</li>
+  <li><a class="bluelink" href="/aeropuerto/">Home</a></li>
+  <li class="active">Flights </li>
 </ol>
-	<h2 class="ch3"> Vuelos </h2>
+	<h2 class="ch3"> Flights </h2>
 
 	<hr />
 	<div class="panel panel-default">
@@ -44,9 +44,9 @@
 
 		<div class="tab-content">
 		<div class="tab-pane active" id="arrivals">
-  	<table class="table ">
+  	<table class="table table-hover tablex">
   	<thead>
-  	<tr>
+  	<tr >
   	<th>Numero</th>
     <th>Fecha</th>
     <th>Origen</th>
@@ -56,7 +56,7 @@
   	</tr>
   	</thead>
   	<tbody>
-    	<tr>
+    	<tr onclick="window.document.location='register_form.php?vuelo=1';" onmouseover="this.style.cursor='pointer'">
     <td>Jill</td>
     <td>Smith</td> 
     <td>50</td>
@@ -64,7 +64,8 @@
     <td>Smith</td> 
     <td>50</td>
   </tr>
-  <tr>
+
+  <tr onclick="window.document.location='register_form.php?vuelo=2';" onmouseover="this.style.cursor='pointer'" >
     <td>Eve</td>
     <td>Jackson</td> 
     <td>94</td>
@@ -77,7 +78,7 @@
   </div>
 
   <div class="tab-pane" id="departures">
-  	<table class="table">
+  	<table class="table table-hover tablex">
   	<thead>
   	<tr>
   	<th>Numero</th>
