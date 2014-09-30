@@ -18,5 +18,14 @@
 		<precio>500</precio>
 		<status>3</status>
 	</vuelo>
+<vuelo>
+		<numero>884</numero>
+		<fecha>20141028</fecha>
+		<origen>HON</origen>
+		<destino>COR</destino>
+		<hora>20:00</hora>
+		<precio>500</precio>
+		<status>2</status>
+	</vuelo>
 
 </lista_vuelos>

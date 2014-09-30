@@ -43,62 +43,21 @@
 		</ul>
 
 		<div class="tab-content">
-		<div class="tab-pane active" id="arrivals">
-  	<table class="table table-hover tablex">
-  	<thead>
-  	<tr >
-  	<th>Numero</th>
-    <th>Fecha</th>
-    <th>Origen</th>
-    <th>Destino</th>
-  	<th>Hora</th>
-  	<th>Status</th>
-  	</tr>
-  	</thead>
-  	<tbody>
-    	<tr onclick="window.document.location='register_form.php?vuelo=1';" onmouseover="this.style.cursor='pointer'">
-    <td>Jill</td>
-    <td>Smith</td> 
-    <td>50</td>
-    <td>Jill</td>
-    <td>Smith</td> 
-    <td>50</td>
-  </tr>
-
-  <tr onclick="window.document.location='register_form.php?vuelo=2';" onmouseover="this.style.cursor='pointer'" >
-    <td>Eve</td>
-    <td>Jackson</td> 
-    <td>94</td>
-    <td>Jill</td>
-    <td>Smith</td> 
-    <td>50</td>
-  </tr>
-  </tbody>
-  </table>
-  </div>
+    <div class="tab-pane active" id="arrivals">
+    <table class="table table-hover tablex">
+		<?php 
+      $type = 1;
+      include './bin/get_arrivals.php';
+    ?>
+    </table>
+    </div>
 
   <div class="tab-pane" id="departures">
-  	<table class="table table-hover tablex">
-  	<thead>
-  	<tr>
-  	<th>Numero</th>
-    <th>Fecha</th>
-    <th>Origen</th>
-    <th>Destino</th>
-  	<th>Hora</th>
-  	<th>Status</th>
-  	</tr>
-  	</thead>
-  	<tbody>
-    	<tr>
-    <td>Jill</td>
-    <td>Smith</td> 
-    <td>50</td>
-    <td>Jill</td>
-    <td>Smith</td> 
-    <td>50</td>
-  </tr>
-  </tbody>
+  <table class="table table-hover tablex">
+  	<?php 
+     
+      include './bin/get_departures.php';
+    ?>
   </table>
   </div>
 

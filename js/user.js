@@ -39,14 +39,11 @@ $(function() {
     if(!b) {
       return false;
     }
-     var airline = $("#airline").val();
-     var vuelo = $("#vuelo").val();
-     var status = $("#status").val();
-     var dataString = 'ticket='+ ticket + '&name=' + name + '&pass=' + pass + '&bag=' + bag + '&airline=' + airline + '&vuelo=' + vuelo + '&status=' + status;
+     var dataString = 'ticket='+ ticket + '&name=' + name;
   //alert (dataString);return false;
   $.ajax({
     type: "POST",
-    url: "bin/register_ticket.php",
+    url: "bin/user_sign.php",
     data: dataString,
      beforeSend: function () {
                         $(".btn").button('loading').fadeIn(1500);

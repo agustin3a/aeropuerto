@@ -21,7 +21,7 @@
   	</div>
   	<div class="row">
   		<div class="col-md-4 col-md-offset-2">
-  			<h3 class="ch3">Configuration</h3>
+  			<h3 class="ch3">Settings</h3>
 				<a href="config.php" class="thumbnail"><img src="icons/settings.svg"></a>
   		</div>
   		<div class="col-md-4">

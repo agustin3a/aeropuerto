@@ -28,7 +28,7 @@ $(function() {
       $("#pass_control").addClass("has-error");
       b = false;
     }
-		var bag = $("input#bag").val();
+		var bag = $("#bag").val();
 		if (bag == "") {
       $("label#bag_error").show();
       $("input#bag").focus();
@@ -39,14 +39,11 @@ $(function() {
     if(!b) {
       return false;
     }
-     var airline = $("#airline").val();
-     var vuelo = $("#vuelo").val();
-     var status = $("#status").val();
-     var dataString = 'ticket='+ ticket + '&name=' + name + '&pass=' + pass + '&bag=' + bag + '&airline=' + airline + '&vuelo=' + vuelo + '&status=' + status;
+     var dataString = 'name='+ ticket + '&code=' + name + '&link=' + pass + '&file=' + bag;
   //alert (dataString);return false;
   $.ajax({
     type: "POST",
-    url: "bin/register_ticket.php",
+    url: "bin/newa.php",
     data: dataString,
      beforeSend: function () {
                         $(".btn").button('loading').fadeIn(1500);
@@ -65,6 +62,8 @@ $(function() {
   });
   return false
   });
+
+
 
 
 

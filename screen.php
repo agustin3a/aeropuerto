@@ -22,64 +22,20 @@
 	<div class="col-md-6 ">
 		<h3 class="text-center"> Arrivals </h3>
 		<hr />
-		<div class="row">
-			<div class="col-md-2"><strong>Time</strong></div>
-			<div class="col-md-3"><strong>Airline</strong></div>
-			<div class="col-md-3"><strong>To</strong></div>
-			<div class="col-md-2"><strong>Fligth</strong></div>
-			<div class="col-md-2"><strong>Status</strong></div>
-		</div>
-		<div class="row">
-			<div class="col-md-2">12:00</div>
-			<div class="col-md-3">Taca</div>
-			<div class="col-md-3">Guatemala</div>
-			<div class="col-md-2">12CK3</div>
-			<div class="col-md-2">On gate</div>
-		</div>
-		<div class="row">
-			<div class="col-md-2">12:00</div>
-			<div class="col-md-3">Taca</div>
-			<div class="col-md-3">Guatemala</div>
-			<div class="col-md-2">12CK3</div>
-			<div class="col-md-2">On gate</div>
-		</div>
+		<table class="table">
+    <?php 
+      $type = 2;
+      include './bin/get_arrivals.php';
+    ?>
+    </table>
 	</div> 
 	<div class="col-md-6">
 		<h3 class="text-center"> Departures </h3>
 		<hr />
-		<table class="table">
-    <thead>
-    <tr>
-    <th>Time</th>
-    <th>Airline</th>
-    <th>To</th>
-    <th>Flight</th>
-    <th>Status</th>
-    </tr>
-    </thead>
-    <tbody>
-      <tr>
-    <td>Jill</td>
-    <td>Smith</td> 
-    <td>50</td>
-    <td>Jill</td>
-    <td>Smith</td> 
-    </tr>
-     <tr>
-    <td>Jill</td>
-    <td>Smith</td> 
-    <td>50</td>
-    <td>Jill</td>
-    <td>Smith</td> 
-    </tr>
-     <tr>
-    <td>Jill</td>
-    <td>Smith</td> 
-    <td>50</td>
-    <td>Jill</td>
-    <td>Smith</td> 
-    </tr>
-    </tbody>
+      <table class="table">
+		<?php 
+      include './bin/get_departures.php';
+    ?>
     </table>
 	</div>
 </div>
