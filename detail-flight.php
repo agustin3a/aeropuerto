@@ -75,22 +75,25 @@
 				echo '<hr />';
 				if(($status == 1) || ($status == 2)) {
 					echo "<form name='registro' method='post' action='src/status.php'";                             
-          echo "<input type='hidden' name='airline' value=$airline />";
-          echo "<input type='hidden' name='vuelo' value=$vuelo />";
-          echo "<input type='hidden' name='status' value=$status />";
-          echo "<input type='hidden' name='date' value=$date />";
+          echo "<input type='hidden' name='aerolinea' value='$airline' />";
+          echo "<input type='hidden' name='vuelo' value='$vuelo' />";
+          echo "<input type='hidden' name='status' value='$status' />";
+          echo "<input type='hidden' name='stat' value='$airline' />";
+          echo "<input type='hidden' name='date' value='$date' />";
 					if($status == 2) {
 						if($destination == 'GUA') {
 							echo '<h3>Confirmation of Landing:</h3>';
-
+							echo "<input type='submit' name='boton' class='btn btn-default' value='Confirm' />";
+          		echo "</form>";
 						}
 					} else if($status == 1) {
 						if($origin == 'GUA') {
 							echo '<h3>Confirmation of Departure:</h3>';
+							echo "<input type='submit' name='boton' class='btn btn-default' value='Confirm' />";
+          echo "</form>";
 						}
 					}
-					 echo "<input type='submit' name='boton' class='btn btn-default' value='Confirm' />";
-          echo "</form>";
+					 
 				}
   	?>
   	

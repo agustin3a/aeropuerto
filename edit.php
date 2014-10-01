@@ -10,7 +10,6 @@
 	$code = $line["code"];
 	$link = $line["link"];
 	$type = $line["file"];
-	echo $id;
 ?>
 	<div class="container">
 
