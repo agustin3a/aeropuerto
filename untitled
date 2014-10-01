@@ -52,3 +52,5 @@
 	</vuelo>
 
 </lista_vuelos>
+
+echo file_get_contents("prueba.txt");

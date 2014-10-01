@@ -1,7 +1,7 @@
 <?php 
 	include 'include/_header.html';
 	include 'layouts/navbar.html';
-	include 'bin/db_connect.php';
+	include 'src/db_connect.php';
 	$id = $_GET['id'];
 	$query = "SELECT * FROM airlines WHERE id=$id";
 	$result = pg_query($conexion,$query) or die(pg_last_error($conexion));
@@ -60,7 +60,7 @@
 </form>
 </div>
 
-<span id="resultado"></span>
+
 
 
 </div>

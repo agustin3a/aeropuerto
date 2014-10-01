@@ -4,7 +4,7 @@ $code = $_POST["code"];
 $name = $_POST["name"];
 $link = $_POST["link"];
 $file = $_POST["file"];
-$message = "Airline sucssesfully added";
+$message = "Airline sucssesfully register";
 
 include 'db_connect.php';
 
@@ -15,7 +15,7 @@ $result = pg_query($conexion,$query) or die(pg_last_error($conexion));
 		$query = "INSERT INTO airlines(name,code,link,file) VALUES('$name','$code','$link',$file)";
 	$result = pg_query($conexion,$query) or die(pg_last_error($conexion)) ;
 	} else {
-		$message = "The airline alread has been added";
+		$message = "The airline already exist";
 	}
 echo $message;
 

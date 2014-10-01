@@ -53,13 +53,14 @@ while($FlightList->count() != 0) {
 
 	$number = $flight[1];
 	$date = $flight[2];
+  $origin = $flight[3];
 	$destination = $flight[4];
 	$scheduled = $flight[5];
 	$status = $flight[7];
 	$airline = $flight[0];
 
   if($type == 1) {
-    echo '<tr onclick=' . '"window.document.location=' . "'detail-flight.php?vuelo=$number&airline=$airline';" . '"' . 'onmouseover=' . '"this.style.cursor=' . "'pointer'" . '">';
+    echo '<tr onclick=' . '"window.document.location=' . "'detail-flight.php?vuelo=$number&airline=$airline&origin=$origin&destination=$destination&scheduled=$scheduled&status=$status';" . '"' . 'onmouseover=' . '"this.style.cursor=' . "'pointer'" . '">';
   } else {
     echo '<tr>';
   }
@@ -70,12 +71,12 @@ while($FlightList->count() != 0) {
   } 
   echo '<td>' . $destination . '</td>';
   echo '<td>' . $scheduled . '</td>';
-  if($status == 3) {
+   if($status == 3) {
     $status = 'Landed';
   } else if($status == 2) {
-    $status = 'Departure';
-  } else {
     $status = 'On time';
+  } else {
+    $status = 'On gate';
   }
   echo '<td>' . $status . '</td>'; 
   echo '</tr>';

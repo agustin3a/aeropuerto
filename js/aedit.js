@@ -44,7 +44,7 @@ $(function() {
   //alert (dataString);return false;
   $.ajax({
     type: "POST",
-    url: "bin/aedit.php",
+    url: "src/aedit.php",
     data: dataString,
      beforeSend: function () {
                         $(".btn").button('loading').fadeIn(1500);

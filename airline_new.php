@@ -49,7 +49,6 @@
 </form>
 </div>
 
-<span id="resultado"></span>
 
 
 </div>

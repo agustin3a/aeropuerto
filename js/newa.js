@@ -43,7 +43,7 @@ $(function() {
   //alert (dataString);return false;
   $.ajax({
     type: "POST",
-    url: "bin/newa.php",
+    url: "src/newa.php",
     data: dataString,
      beforeSend: function () {
                         $(".btn").button('loading').fadeIn(1500);
