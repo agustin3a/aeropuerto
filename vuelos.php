@@ -50,7 +50,7 @@ error_reporting(-1);
     <table class="table table-hover tablex">
 		<?php 
       $type = 1;
-      include 'bin/get_arrivals.php';
+      include 'src/get_arrivals.php';
     ?>
     </table>
     </div>
@@ -58,7 +58,7 @@ error_reporting(-1);
   <div class="tab-pane" id="departures">
   <table class="table table-hover tablex">
   	<?php 
-      include './bin/get_departures.php';
+      include './src/get_departures.php';
     ?>
   </table>
   </div>

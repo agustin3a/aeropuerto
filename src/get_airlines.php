@@ -13,7 +13,7 @@
 <?php 
 
 
-include 'bin/db_connect.php';
+include 'src/db_connect.php';
 
 $query = "SELECT * FROM airlines";
 

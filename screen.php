@@ -25,7 +25,7 @@
 		<table class="table">
     <?php 
       $type = 2;
-      include './bin/get_arrivals.php';
+      include 'src/get_arrivals.php';
     ?>
     </table>
 	</div> 
@@ -34,7 +34,7 @@
 		<hr />
       <table class="table">
 		<?php 
-      include './bin/get_departures.php';
+      include 'src/get_departures.php';
     ?>
     </table>
 	</div>

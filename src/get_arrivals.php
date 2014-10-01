@@ -17,7 +17,7 @@
   	<tbody>
 
 <?php	
-include 'bin/db_connect.php';
+include 'src/db_connect.php';
 
 $query = "SELECT * FROM airlines";
 $result = pg_query($conexion,$query) or die(pg_last_error($conexion));
@@ -31,13 +31,20 @@ while($line = pg_fetch_array($result)) {
   $id = $line["id"];
   $fecha = date("Ymd"); 
 
-  $file = $link . '/script_lista_vuelos?origen=GUA&fecha=' . $fecha . '&type=' . $ftype; 
+  if($ftype == 1) {
+    $ex = 'XML';
+  } else {
+    $ex = 'JSON';
+  }
+
+  $file = $link . '/script_lista_vuelos.php?origen=GUA&fecha=' . $fecha . '&type=' . $ex; 
+  //echo $file;
 
 
-    if ($type == 1) {
-    include 'bin/parserXML_Vuelos.php';
+    if ($ftype == 1) {
+    include 'src/parserXML_Vuelos.php';
     } else  {
-      include 'bin/parserJSON_Vuelos.php';
+      include 'src/parserJSON_Vuelos.php';
     }
 
 while($FlightList->count() != 0) {

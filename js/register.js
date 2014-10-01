@@ -46,7 +46,7 @@ $(function() {
   //alert (dataString);return false;
   $.ajax({
     type: "POST",
-    url: "bin/register_ticket.php",
+    url: "src/register_ticket.php",
     data: dataString,
      beforeSend: function () {
                         $(".btn").button('loading').fadeIn(1500);
@@ -59,7 +59,6 @@ $(function() {
         $('#danger').html(response);
         $('.alert-danger').show();
       }
-       $("#resultado").html(response);
       $(".btn").button('reset');
     }
   });

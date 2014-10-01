@@ -17,4 +17,23 @@
 
       			<status>1</status>
 
-      			</vuelo></lista_vuelos>
+      			</vuelo><vuelo>
+
+      			<numero>123</numero>
+
+      			<fecha>20140930</fecha>
+
+      			<origen>GUA</origen>
+
+      			<destino>UGG</destino>
+
+      			<hora>01:00</hora>
+
+      			<precio>120</precio>
+
+      			<status>2</status>
+
+
+
+
+    			</vuelo></lista_vuelos>

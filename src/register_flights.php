@@ -12,7 +12,7 @@
   	<tbody>
 
 <?php	
-  include 'bin/db_connect.php';
+  include 'src/db_connect.php';
 
 $query = "SELECT * FROM airlines";
 $result = pg_query($conexion,$query) or die(pg_last_error($conexion));
@@ -22,7 +22,7 @@ while($line = pg_fetch_array($result)) {
   $name = $line["name"];
   $code = $line["code"];
   $link = $line["link"];
-  $type = $line["file"];
+  $ftype = $line["file"];
   $id = $line["id"];
   $fecha = date("Ymd"); 
 
@@ -33,13 +33,13 @@ while($line = pg_fetch_array($result)) {
   }
 
   $file = $link . '/script_lista_vuelos.php?origen=GUA&fecha=' . $fecha . '&type=' . $st; 
-  echo $file;
+  //echo $file;
 
 
-    if ($type == 1) {
-      include 'bin/parserXML_Vuelos.php';
+    if ($ftype == 1) {
+      include 'src/parserXML_Vuelos.php';
     } else  {
-      include 'bin/parserJSON_Vuelos.php';
+      include 'src/parserJSON_Vuelos.php';
     }
   
   while($FlightList->count() != 0) {
@@ -80,20 +80,25 @@ while($line = pg_fetch_array($result)) {
   $name = $line["name"];
   $code = $line["code"];
   $link = $line["link"];
-  $type = $line["file"];
+  $ftype = $line["file"];
   $id = $line["id"];
   $fecha = date("Ymd"); 
 
-  $file = $link . '/script_lista_vuelos?destino=GUA&fecha=' . $fecha . '&type=' . $type; 
+   if($type == 1) {
+    $st = "XML";
+  } else {
+    $st = "JSON";
+  }
+
+  $file = $link . '/script_lista_vuelos.php?destino=GUA&fecha=' . $fecha . '&type=' . $st; 
   //echo $file;
 
-    if ($type == 1) {
-    include 'bin/parserXML_Vuelos.php';
+    if ($ftype == 1) {
+    include 'src/parserXML_Vuelos.php';
     } else  {
-      include 'bin/parserJSON_Vuelos.php';
+      include 'src/parserJSON_Vuelos.php';
     }
 
-    print_r($FlightList);
 
   while($FlightList->count() != 0) {
     $flight = $FlightList->pop();

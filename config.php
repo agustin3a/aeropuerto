@@ -13,7 +13,7 @@
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<a href="airline_new.php" class="bluelink">Add</a>
-			<?php include "bin/get_airlines.php" ?>
+			<?php include "src/get_airlines.php" ?>
 
 
 		</div>

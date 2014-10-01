@@ -17,7 +17,7 @@
   <div class="panel panel-default">
     <div class="panel-body">
     <table class="table table-hover">
-    <?php include './bin/register_flights.php' ?>
+    <?php include './src/register_flights.php' ?>
   </table>
 
 
