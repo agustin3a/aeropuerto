@@ -1,5 +1,5 @@
-  	<thead>
-  	<tr >
+    <thead>
+  	<tr>
   	<th>Airline</th>
   	<th>Number</th>
     <?php
@@ -27,11 +27,11 @@ while($line = pg_fetch_array($result)) {
   $name = $line["name"];
   $code = $line["code"];
   $link = $line["link"];
-  $type = $line["file"];
+  $ftype = $line["file"];
   $id = $line["id"];
   $fecha = date("Ymd"); 
 
-  $file = $link . '/script_lista_vuelos?origen=GUA&fecha=' . $fecha . '&type=' . $type; 
+  $file = $link . '/script_lista_vuelos?origen=GUA&fecha=' . $fecha . '&type=' . $ftype; 
 
 
     if ($type == 1) {
@@ -47,6 +47,7 @@ while($FlightList->count() != 0) {
 	$number = $flight[1];
 	$date = $flight[2];
 	$origin = $flight[3];
+  $destination = $flight[4];
 	$scheduled = $flight[5];
 	$status = $flight[7];
 	$airline = $flight[0];

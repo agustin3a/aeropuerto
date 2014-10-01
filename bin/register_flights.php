@@ -26,15 +26,22 @@ while($line = pg_fetch_array($result)) {
   $id = $line["id"];
   $fecha = date("Ymd"); 
 
-  $file = $link . '/script_lista_vuelos?origen=GUA&fecha=' . $fecha . '&type=' . $type; 
-  //echo $file;
+  if($type == 1) {
+    $st = "XML";
+  } else {
+    $st = "JSON";
+  }
+
+  $file = $link . '/script_lista_vuelos.php?origen=GUA&fecha=' . $fecha . '&type=' . $st; 
+  echo $file;
+
 
     if ($type == 1) {
-    include 'bin/parserXML_Vuelos.php';
+      include 'bin/parserXML_Vuelos.php';
     } else  {
       include 'bin/parserJSON_Vuelos.php';
     }
-
+  
   while($FlightList->count() != 0) {
   	$flight = $FlightList->pop();
   	$number = $flight[1];
@@ -85,6 +92,8 @@ while($line = pg_fetch_array($result)) {
     } else  {
       include 'bin/parserJSON_Vuelos.php';
     }
+
+    print_r($FlightList);
 
   while($FlightList->count() != 0) {
     $flight = $FlightList->pop();

@@ -1,17 +1,16 @@
 <?php 
-	
 	// expresiones regulares para Script lista_vuelos
     $listVueloIni = "#<lista_vuelos>#";
 	$listVueloFin = "#</lista_vuelos>#";
 	$Aerolinea = "#(<aerolinea>)([a-zA-z]+)(</aerolinea>)#";
 	$vuelo = "#<vuelo>#";
-	$finVuelo = "#</vuelo>#";
-	$numero = "#(<numero>)([0-9]+)(</numero>)#";
-	$fecha = "#<fecha>2014[0-9]+</fecha>#";
-	$origen = "#<origen>[A-Z]{3}</origen>#";
-	$destino = "#<destino>[A-Z]{3}</destino>#";
-	$hora = "#<hora>[0-2][0-9]:[0-5][0-9]</hora>#";
-	$precio = "#<precio>[0-9]+</precio>#";
+	$finVuelo = "#(</vuelo>)((<vuelo>)?)#";
+	$numero = "#(<numero>)()([0-9]+)(</numero>)#";
+	$fecha = "#(<fecha>)(2014[0-1]([0-9]|[0-2])[0-3][0-9])(</fecha>)#";
+	$origen = "#(<origen>)([A-Z]{3})(</origen>)#";
+	$destino = "#(<destino>)([A-Z]{3})(</destino>)#";
+	$hora = "#(<hora>)([0-2][0-9]:[0-5][0-9])(</hora>)#";
+	$precio = "#(<precio>)([0-9]+)(</precio>)#";
 	$status = "#(<status>)([1-3])(</status>)#";
 	
 	//Arreglo de expresiones regulares
@@ -49,61 +48,60 @@
 		        			$Flight = array(0 => $matches[2]);
 		        			break;
 
-		        		case '2':
-		        			//empieza el vuelo
-		        			break;
-
 						case '3':
-		        			//fecha
-		        			$Flight[1] = $matches[2];
+		        			//numero
+		        			$Flight[1] = $matches[3];
 		        			break;
 
 						case '4':
 		        			//fecha
-		        			$Flight[2] = $matches[0];
+		        			$Flight[2] = $matches[2];
+		        			
 		        			break;
 		        		
 		        		case '5':
 		        			//origen
-		        			$Flight[3] = $matches[0];
+		        			$Flight[3] = $matches[2];
+		        			
 		        			break;
 
 		        		case '6':
 		        			//destino
-		        			$Flight[4] = $matches[0];
+		        			$Flight[4] = $matches[2];
+		        			
 		        			break;
 		        		
 		        		case '7':
 		        			//hora
-		        			$Flight[5] = $matches[0];
+		        			$Flight[5] = $matches[2];
+		        			
 		        			break;
 		        		case '8':
 		        			//precio
-		        			$Flight[6] = $matches[0];
+		        			$Flight[6] = $matches[2];
+		        			
 		        			break;
 		        		
 		        		case '9':
 		        			//status
 		        			$Flight[7] = $matches[2];
+		        			
 		        			break;
 
 		        		case '10':
 		        			//ingresar el vuelo en la lindek list
 		        			$FlightList->push($Flight);
 		        			break;
-		        		
 		        		case '11':
-		        			//se termina de llenar la linked list de los vuelos
 		        			//print_r($FlightList);
-		        			break;	        		
-		        		}
-
-		        	}        	
+		        		break;		
+		        	}
+		        }        	
 	    	}
 	    }
 	} else {
-	    // error opening the file.
-	} 
+    	// error opening the file.
+	} 	
 
 	fclose($handle);
 ?>

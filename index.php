@@ -26,7 +26,7 @@
   		</div>
   		<div class="col-md-4">
   			<h3 class="ch3">Log out</h3>
-  			<a href="logout.php" class="thumbnail"><img src="icons/salir.svg"></a>
+  			<a href="sign.php" class="thumbnail"><img src="icons/salir.svg"></a>
   		</div>
   	</div>
 	</div>

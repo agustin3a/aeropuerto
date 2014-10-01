@@ -39,7 +39,7 @@ $(function() {
     if(!b) {
       return false;
     }
-     var dataString = 'ticket='+ ticket + '&name=' + name;
+     var dataString = 'user='+ ticket + '&pass=' + name;
   //alert (dataString);return false;
   $.ajax({
     type: "POST",
@@ -56,6 +56,7 @@ $(function() {
         $('#danger').html(response);
         $('.alert-danger').show();
       }
+      window.location.href = "/aeropuerto/";
        $("#resultado").html(response);
       $(".btn").button('reset');
     }

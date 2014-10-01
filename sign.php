@@ -29,9 +29,10 @@
 	<div class="container">
 		<div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Sign In</h3>
+    <h3 class="panel-title">Log in</h3>
   </div>
   <div class="panel-body">
+  <div class="alert alert-danger" role="alert" id="danger"></div>
     <div id="contact_form">
 <form name="contact" action="">
   <fieldset>
@@ -42,7 +43,7 @@
     </div>
 		<div class="form-group" id="name_control">
 	    <label for="name" id="name_label">Password</label>
-	    <input type="text" name="name" id="name" maxlength="5" value="<?php echo $code?>" class="text-input form-control" />
+	    <input type="password" name="name" id="name" maxlength="30" value="<?php echo $code?>" class="text-input form-control" />
 	    <label class="error control-label" for="name" id="name_error">This field is required.</label>
     </div>
     <input type="submit" name="submit" class="btn btn-default btn-lg" data-loading-text="Loading..." id="submit_btn" value="Sign" />

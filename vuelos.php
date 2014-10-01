@@ -1,6 +1,9 @@
 <?php 
 	include 'include/_header.html';
 	include 'layouts/navbar.html';
+	ini_set('display_startup_errors',1);
+ini_set('display_errors',1);
+error_reporting(-1);
 ?>
 
 	<div class="container">
@@ -47,7 +50,7 @@
     <table class="table table-hover tablex">
 		<?php 
       $type = 1;
-      include './bin/get_arrivals.php';
+      include 'bin/get_arrivals.php';
     ?>
     </table>
     </div>
@@ -55,7 +58,6 @@
   <div class="tab-pane" id="departures">
   <table class="table table-hover tablex">
   	<?php 
-     
       include './bin/get_departures.php';
     ?>
   </table>
