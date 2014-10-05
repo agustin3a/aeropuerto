@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>A simple map</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+ <link rel="stylesheet" type="text/less" href="less/bootstrap.less" />
+<script type="text/javascript" src="js/less-1.7.4.min.js" ></script>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+<div class="container">
+<div id='map'></div>
+</div>
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoiYWd1c3RpbjNhIiwiYSI6Ik5EU3FnSW8ifQ.c97mqtOcNcKft2TwV-tnEQ';
+var map = L.mapbox.map('map', 'agustin3a.jlleh4fk')
+    .setView([14.565, -90.732], 14);
+</script>
+</body>
+</html>
