@@ -19,13 +19,13 @@ error_reporting(-1);
 	$file = $link . '/script_salida_llegada.php?aerolinea='. $airline . '&vuelo=' . $vuelo . '&fecha=' . $date;
 	$fecha2 = date("Ymd+hi");
 	if($status == 1) {
-		$file = $file . '&in_out=1&fecha_in_out=' . $fecha2;
+		$file = $file . '&in_out=out&fecha_in_out=' . $fecha2;
 	} else if($status == 2) {
-		$file = $file . '&in_out=0&fecha_in_out= ' . $fecha2;
+		$file = $file . '&in_out=in&fecha_in_out=' . $fecha2;
 	}
 
 	echo $file;
-	//fopen($file,'r');
+	fopen($file,'r');
 
 	
 	//header( 'Location: /aeropuerto/vuelos.php' ) ; 	

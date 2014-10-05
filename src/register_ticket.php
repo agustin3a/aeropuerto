@@ -27,13 +27,13 @@ if($type == 1) {
 }
 
 $file = $link . '/script_listado_pasajeros.php?aerolinea=' . $airline . '&vuelo=' . $vuelo . '&fecha=' . $fecha . '&type=' . $st; 
-
+//echo $file;
 
 $fecha2 = date("Ymd+hi");
 if($status == 3) {
-  $output = $link . '/script_listado_pasajeros.php?aerolinea=' . $airline . '&vuelo=' . $vuelo . '&fecha=' . $fecha . '&boleto=' . $ticket . '&in_out=1&fecha_in_out=' . $fecha2 ; 
+  $output = $link . '/script_listado_pasajeros.php?aerolinea=' . $airline . '&vuelo=' . $vuelo . '&fecha=' . $fecha . '&boleto=' . $ticket . '&in_out=out&fecha_in_out=' . $fecha2 ; 
 } else {
-  $output = $link . '/script_listado_pasajeros.php?aerolinea=' . $airline . '&vuelo=' . $vuelo . '&fecha=' . $fecha . '&boleto=' . $ticket . '&in_out=0&fecha_in_out=' . $fecha2 ; 
+  $output = $link . '/script_listado_pasajeros.php?aerolinea=' . $airline . '&vuelo=' . $vuelo . '&fecha=' . $fecha . '&boleto=' . $ticket . '&in_out=in&fecha_in_out=' . $fecha2 ; 
 }
 
 //echo $output;
@@ -76,15 +76,15 @@ $result = pg_query($conexion,$query) or die(pg_last_error($conexion));
 }
 
 if($match == 3) {
-	$message = 'The ticket dosent exist';
+	echo 3;
 } else if($match == 4) {
-	$message = 'The ticket has already been register';
+	$message = 'The ticket has already been registered';
+	echo 4;
 } else {
-	$message = 'The passenger sucessfully register';
+	$message = "The passenger sucessfully registered";
+	echo 2;
 	//fopen($output, "r");
 }
  
-
-echo $message;
 
 ?>

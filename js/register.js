@@ -48,21 +48,25 @@ $(function() {
     type: "POST",
     url: "src/register_ticket.php",
     data: dataString,
+     dataType: 'text',
      beforeSend: function () {
                         $(".btn").button('loading').fadeIn(1500);
                 },
 
     success: function(response) {
-      if(response === "The passenger sucessfully register") {
+      if(response == 2) {
         $('.alert-success').show();
+      } else if(response == 3){
+        $('#danger').html("The ticket dosent exist");
+        $('.alert-danger').show();
       } else {
-        $('#danger').html(response);
+        $('#danger').html("The ticket has already been registered");
         $('.alert-danger').show();
       }
       $(".btn").button('reset');
     }
   });
-  return false
+  return false;
   });
 
 

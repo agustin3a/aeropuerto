@@ -33,7 +33,7 @@
     </div>
     <div class="form-group" id="pass_control">
 	    <label for="pass" id="pass_label">Link</label>
-	    <input type="text" name="pass" id="pass" maxlength="30" value="" class="text-input form-control" />
+	    <input type="text" name="pass" id="pass"  value="" class="text-input form-control" />
 	    <label class="error control-label" for="pass" id="pass_error">This field is required.</label>
     </div>
 		<div class="form-group" id="bag_control">

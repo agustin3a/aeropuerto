@@ -10,7 +10,6 @@
         echo '<th>To</th>';
       }
     ?>
-    
   	<th>Scheduled</th>
   	<th>Status</th>
   	</tr>
@@ -32,14 +31,15 @@ while($line = pg_fetch_array($result)) {
   $id = $line["id"];
   $fecha = date("Ymd"); 
 
+
   if($ftype == 1) {
     $ex = 'XML';
   } else {
     $ex = 'JSON';
   }
 
-  $file = $link . '/script_lista_vuelos?destino=GUA&fecha=' . $fecha . '&type=' . $ex; 
-  //echo $file;
+  $file = $link . '/script_lista_vuelos.php?origen=GUA&fecha=' . $fecha . '&type=' . $ex; 
+  echo $file;
   
     if ($ftype == 1) {
     include 'src/parserXML_Vuelos.php';
@@ -55,16 +55,16 @@ while($FlightList->count() != 0) {
 	$date = $flight[2];
   $origin = $flight[3];
 	$destination = $flight[4];
-	$scheduled = $flight[5];
+  $scheduled = $flight[5];
 	$status = $flight[7];
-	$airline = $flight[0];
+	
 
   if($type == 1) {
-    echo '<tr onclick=' . '"window.document.location=' . "'detail-flight.php?vuelo=$number&airline=$airline&origin=$origin&destination=$destination&scheduled=$scheduled&status=$status';" . '"' . 'onmouseover=' . '"this.style.cursor=' . "'pointer'" . '">';
+    echo '<tr onclick=' . '"window.document.location=' . "'detail-flight.php?vuelo=$number&airline=$code&origin=$origin&destination=$destination&scheduled=$scheduled&status=$status';" . '"' . 'onmouseover=' . '"this.style.cursor=' . "'pointer'" . '">';
   } else {
     echo '<tr>';
   }
-  echo '<td>' . $airline . '</td>';
+  echo '<td>' . $name . '</td>';
   echo '<td>' . $number . '</td>';
   if($type == 1) {
     echo '<td>'. $date . '</td>';
@@ -86,4 +86,13 @@ while($FlightList->count() != 0) {
 
 ?>
   </tbody>
+
+
+
+
+
+
+
+
+
 

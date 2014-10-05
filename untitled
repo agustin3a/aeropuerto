@@ -54,3 +54,20 @@
 </lista_vuelos>
 
 echo file_get_contents("prueba.txt");
+
+http://192.168.1.144/AeroGE/script_listado_pasajeros.php?aerolinea=AGE&vuelo=890&fecha=20141002&type=XML
+
+  
+   {"lista_vuelos" : {"aerolinea": "TACA",
+   "vuelos" :[{"numero":"777","fecha":"20140928","origen":"GUA","destino":"MIA",
+		"hora":"16:00",
+		"precio":"200",
+		"status":"1"},
+		{"numero":"778",
+		"fecha":"20140929",
+		"origen":"GUA",
+		"destino":"MIA",
+		"hora":"01:00",
+		"precio":"500",
+		"status":"2"}
+		]}}

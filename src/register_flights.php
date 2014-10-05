@@ -12,6 +12,9 @@
   	<tbody>
 
 <?php	
+ini_set('display_startup_errors',1);
+ini_set('display_errors',1);
+error_reporting(-1);
   include 'src/db_connect.php';
 
 $query = "SELECT * FROM airlines";
@@ -26,7 +29,7 @@ while($line = pg_fetch_array($result)) {
   $id = $line["id"];
   $fecha = date("Ymd"); 
 
-  if($type == 1) {
+  if($ftype == 1) {
     $st = "XML";
   } else {
     $st = "JSON";
@@ -50,10 +53,9 @@ while($line = pg_fetch_array($result)) {
     $destination = $flight[4];
   	$scheduled = $flight[5];
   	$status = $flight[7];
-  	$airline = $flight[0];
-    if(($status == 3) || ($status == 1)) {
-      echo '<tr onclick=' . '"window.document.location=' . "'register_form.php?vuelo=" . $number . "&airline=$airline&status&status=$status';" . '"' . 'onmouseover=' . '"this.style.cursor=' . "'pointer'" . '">';
-      echo '<td>' . $airline .'</td>';
+    if(($status == 1)) {
+      echo '<tr onclick=' . '"window.document.location=' . "'register_form.php?vuelo=" . $number . "&airline=$code&status&status=$status';" . '"' . 'onmouseover=' . '"this.style.cursor=' . "'pointer'" . '">';
+      echo '<td>' . $name .'</td>';
       echo '<td>' . $number . '</td>';
       echo '<td>' . $date . '</td>';
       echo '<td>' . $origin . '</td>';
@@ -84,7 +86,7 @@ while($line = pg_fetch_array($result)) {
   $id = $line["id"];
   $fecha = date("Ymd"); 
 
-   if($type == 1) {
+   if($ftype == 1) {
     $st = "XML";
   } else {
     $st = "JSON";
@@ -109,9 +111,9 @@ while($line = pg_fetch_array($result)) {
     $scheduled = $flight[5];
     $status = $flight[7];
     $airline = $flight[0];
-    if(($status == 3) || ($status == 1)) {
+    if(($status == 3)) {
       echo '<tr onclick=' . '"window.document.location=' . "'register_form.php?vuelo=" . $number . "&airline=$airline&status=$status';" . '"' . 'onmouseover=' . '"this.style.cursor=' . "'pointer'" . '">';
-      echo '<td>' . $airline .'</td>';
+      echo '<td>' . $name .'</td>';
       echo '<td>' . $number . '</td>';
       echo '<td>' . $date . '</td>';
       echo '<td>' . $origin . '</td>';

@@ -32,7 +32,7 @@
   <fieldset>
   	<div class="form-group" id="ticket_control">
 	    <label for="ticket" id="ticket_label">Name</label>
-	    <input type="text" name="ticket" id="ticket" maxlength="30" value="<?php echo $name?>" class="text-input form-control" />
+	    <input type="text" name="ticket" id="ticket" value="<?php echo $name?>" class="text-input form-control" />
 	    <label class="error control-label" for="ticket" id="ticket_error">This field is required.</label>
     </div>
 		<div class="form-group" id="name_control">
@@ -42,7 +42,7 @@
     </div>
     <div class="form-group" id="pass_control">
 	    <label for="pass" id="pass_label">Link</label>
-	    <input type="text" name="pass" id="pass" maxlength="30" value="<?php echo $link?>" class="text-input form-control" />
+	    <input type="text" name="pass" id="pass"  value="<?php echo $link?>" class="text-input form-control" />
 	    <label class="error control-label" for="pass" id="pass_error">This field is required.</label>
     </div>
 		<div class="form-group" id="bag_control">

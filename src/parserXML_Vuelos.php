@@ -7,8 +7,8 @@
 	$finVuelo = "#(</vuelo>)((<vuelo>)?)#";
 	$numero = "#(<numero>)()([0-9]+)(</numero>)#";
 	$fecha = "#(<fecha>)(2014[0-1]([0-9]|[0-2])[0-3][0-9])(</fecha>)#";
-	$origen = "#(<origen>)([A-Z]{3})(</origen>)#";
-	$destino = "#(<destino>)([A-Z]{3})(</destino>)#";
+	$origen = "#(<origen>)(([a-zA-z]|[0-9])+)(</origen>)#";
+	$destino = "#(<destino>)(([a-zA-z]|[0-9])+)(</destino>)#";
 	$hora = "#(<hora>)([0-2][0-9]:[0-5][0-9])(</hora>)#";
 	$precio = "#(<precio>)([0-9]+)(</precio>)#";
 	$status = "#(<status>)([1-3])(</status>)#";
@@ -30,7 +30,7 @@
 
 
 	//Se empieaza a leer el archivo
-	$handle = fopen("prueba.txt", "r");
+	$handle = fopen($file, "r");
 	
 	if ($handle) {
 	    while (($line = fgets($handle)) !== false) {
