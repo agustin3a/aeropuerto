@@ -1,7 +1,8 @@
 $(function() {
   $('.error').hide();
   $('.alert').hide();
-  $(".btn").click(function() {
+  $('#back').hide();
+  $("#submit_btn").click(function() {
     // validate and process form here
     b = true;
     $(".form-group").removeClass("has-error");
@@ -46,18 +47,19 @@ $(function() {
     url: "src/newa.php",
     data: dataString,
      beforeSend: function () {
-                        $(".btn").button('loading').fadeIn(1500);
+                        $("#submit_btn").button('loading').fadeIn(1500);
                 },
 
     success: function(response) {
-      if(response === "The passenger sucessfully register") {
+      if(response == 1) {
         $('.alert-success').show();
+        $('#contact_form').hide();
+        $('#back').show();
       } else {
-        $('#danger').html(response);
         $('.alert-danger').show();
+         $("#submit_btn").button('reset');
       }
-       $("#resultado").html(response);
-      $(".btn").button('reset');
+     
     }
   });
   return false

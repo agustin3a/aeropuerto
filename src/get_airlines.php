@@ -21,14 +21,13 @@ $result = pg_query($conexion,$query) or die(pg_last_error($conexion));
   	
 
 while($line = pg_fetch_array($result)) {
-	echo '<tr>';
 
   $name = $line["name"];
   $code = $line["code"];
   $link = $line["link"];
   $file = $line["file"];
   $id = $line["id"];
-
+  echo '<tr class="t'. $id . '">';
   echo '<td>' . $name .'</td>';
   echo '<td>' . $code . '</td>';
   echo '<td>' . $link . '</td>';
@@ -38,7 +37,7 @@ while($line = pg_fetch_array($result)) {
  		echo '<td>JSON</td>';
  	}
  	echo '<td><a href="edit.php?id=' . $id . '"><button type="button" class="btn btn-info">Edit</button></a></td>';
- 	echo '<td><a href=#><button type="button" class="btn btn-danger">Delete</button></a></td>';  
+ 	echo '<td><button type="button" class="btn btn-danger" value=' . $id . '>Delete</button></td>';  
  	echo '</tr>';
 }
 

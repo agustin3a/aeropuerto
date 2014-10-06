@@ -1,7 +1,8 @@
 $(function() {
   $('.error').hide();
   $('.alert').hide();
-  $(".btn").click(function() {
+  $('#back').hide();
+  $("#submit_btn").click(function() {
     // validate and process form here
     b = true;
     $(".form-group").removeClass("has-error");
@@ -47,18 +48,21 @@ $(function() {
     url: "src/aedit.php",
     data: dataString,
      beforeSend: function () {
-                        $(".btn").button('loading').fadeIn(1500);
+                        $("#submit_btn").button('loading').fadeIn(1500);
                 },
 
     success: function(response) {
-      if(response === "The passenger sucessfully register") {
+      if(response == 1) {
+        $('.alert-success').html("Airline sucessfully updated");
         $('.alert-success').show();
+        $('#contact_form').hide();
+        $('#back').show();
       } else {
-        $('#danger').html(response);
+        $('#danger').html("The ariline code already exists");
         $('.alert-danger').show();
+        $("#submit_btn").button('reset');
       }
-       $("#resultado").html(response);
-      $(".btn").button('reset');
+      
     }
   });
   return false

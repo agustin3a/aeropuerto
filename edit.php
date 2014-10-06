@@ -25,7 +25,7 @@
 
 <div class="panel panel-default">
     <div class="panel-body">
-    <div class="alert alert-success" role="alert">Passenger succesfull register</div>
+    <div class="alert alert-success" role="alert"></div>
     <div class="alert alert-danger" role="alert" id="danger"></div>
     	<div id="contact_form">
 <form name="contact" action="">
@@ -58,7 +58,7 @@
   </fieldset>
 </form>
 </div>
-
+<a href="config.php" id="back"><button class="btn btn-default btn-lg" >Back</button></a>
 
 
 

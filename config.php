@@ -12,7 +12,8 @@
 			<hr />
 	<div class="panel panel-default">
 		<div class="panel-body">
-			<a href="airline_new.php" class="bluelink">Add</a>
+			<div class="alert alert-danger" role="alert" id="danger">Airline deleted</div>
+			<a href="airline_new.php" class="bluelink"><button class="btn btn-default"> Add Airline </button></a><hr />
 			<?php include "src/get_airlines.php" ?>
 
 
@@ -20,5 +21,5 @@
 	</div>
 </div>
 
-
+<script type="text/javascript" src="js/delete.js" ></script>
 <?php include 'include/_footer.html' ?>
