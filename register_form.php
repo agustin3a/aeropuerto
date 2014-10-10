@@ -35,6 +35,11 @@
 	    <input type="text" name="name" id="name" size="30" value="" class="text-input form-control" />
 	    <label class="error control-label" for="name" id="name_error">This field is required.</label>
     </div>
+    <div class="form-group" id="seat_control">
+      <label for="seat" id="seat_label">Seat</label>
+      <input type="number" name="seat" id="seat" value="" class="text-input form-control" />
+      <label class="error control-label" for="sea" id="seat_error">This field is required.</label>
+    </div>
     <div class="form-group" id="pass_control">
 	    <label for="pass" id="pass_label">Passport</label>
 	    <input type="text" name="pass" id="pass" size="30" value="" class="text-input form-control" />

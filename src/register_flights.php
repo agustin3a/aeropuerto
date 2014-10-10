@@ -54,7 +54,7 @@ while($line = pg_fetch_array($result)) {
   	$scheduled = $flight[5];
   	$status = $flight[7];
     if(($status == 1)) {
-      echo '<tr onclick=' . '"window.document.location=' . "'register_form.php?vuelo=" . $number . "&airline=$code&status&status=$status';" . '"' . 'onmouseover=' . '"this.style.cursor=' . "'pointer'" . '">';
+      echo '<tr onclick=' . '"window.document.location=' . "'register_form.php?vuelo=" . $number . "&airline=$code&status=$status';" . '"' . 'onmouseover=' . '"this.style.cursor=' . "'pointer'" . '">';
       echo '<td>' . $name .'</td>';
       echo '<td>' . $number . '</td>';
       echo '<td>' . $date . '</td>';

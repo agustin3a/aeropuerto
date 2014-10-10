@@ -11,7 +11,6 @@ $file = file_get_contents("pruebaJ.txt");
 $exp = "#(\{\s*\"lista\_vuelos\"\s*\:\s*\{\s*\"aerolinea\"\s*:\s*)(\"[a-zA-z]+\")(\s*,\s*\"vuelos\"\s*:\s*\[)((\n|.)*)(\s*\]\s*\}\s*\})#";
 
 if (preg_match($exp, $file, $matches) === 1) {
-	echo 'Funciono';
 	$file = $matches[4];
 	$namex = $matches[2];
 } else {

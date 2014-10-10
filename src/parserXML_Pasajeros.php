@@ -1,89 +1,42 @@
 <?php 
-	// expresiones regulares para Script listado_pasajeros
-    $IniListPasen = "#<lista_pasajeros>#";
-    $Aerolinea = "#(<aerolinea>)([a-zA-z]+)(</aerolinea>)#";
-    $numero = "#(<numero>)([0-9]+)(</numero>)#";
-	$fecha = "#(<fecha>)(2014[0-1]([0-9]|[0-2])[0-3][0-9])(</fecha>)#";
-	$origen = "#(<origen>)([A-Z]{3})(</origen>)#";
-	$destino = "#(<destino>)([A-Z]{3})(</destino>)#";
-	$avion = "#(<avion>)(([A-Z]|[0-9])+)(</avion>)#";
-	$IniPaseng = "#<pasajero>#";
-	$boleto = "#(<boleto>)(([a-zA-z]|[0-9])+)(</boleto>)#";
-	$nombre = "#(<nombre>)([a-zA-z]+)(</nombre>)#";
-	$asiento =	"#(<asiento>)([0-9]{2})(</asiento>)#";
-	$FinPasen = "#</pasajero>#";
-	$FinListPasen = "#</lista_pasajeros>#";
+
 	
-	//Arreglo de expresiones regulares
-	$expresion = array(0 => $IniListPasen,	
-					1 => $Aerolinea,
-					2 => $numero,
-					3 => $fecha,
-					4 => $origen,
-					5 => $destino,
-					6 => $avion,
-					7 => $IniPaseng,
-					8 => $boleto,
-					9 => $nombre,
-					10 => $asiento,
-					11 => $FinPasen,
-					12 => $FinListPasen
-		);
+	$file = file_get_contents("prueba2.txt");
 
+$exp = "#(<lista_pasajeros>\s*<aerolinea>\s*)([a-zA-z]+)(\s*</aerolinea>\s*<numero>\s*)([0-9]+)(\s*</numero>\s*<fecha>\s*)([0-9]+)(\s*</fecha>\s*<origen>\s*)([a-zA-Z0-9]+)(\s*</origen>\s*<destino>\s*)([a-zA-Z0-9]+)(\s*</destino>\s*<avion>\s*)([a-zA-Z0-9]+)(\s*</avion>\s*)((\n|.)*)(\s*</lista_pasajeros>)#";
 
-	//Se empieaza a leer el archivo
-	$handle = fopen("prueba2.txt", "r");
-	
-	if ($handle) {
-	    while (($line = fgets($handle)) !== false) {
-	        for ($i=0; $i < 13; $i++) {
-	        	$pattern = $expresion[$i];
-	        	if (preg_match($pattern, $line, $matches) === 1) {
-	        		switch ($i) {
-		        		case '0':
-		        			//contruir la linked list
-		        			$PassengerList = new SplDoublyLinkedList();
-		        			break;
-		        		case '1':
-		        			$Passengers = array(0 => $matches[2]);
-		        			break;
-		        		case '2':
-		        			$Passengers[1] = $matches[2];
-		        			break;
-		        		case '3':
-		        			$Passengers[2] = $matches[2];
-		        			break;
-		        		case '4':
-		        			$Passengers[3] = $matches[2];
-		        			break;
-		        		case '5':
-		        			$Passengers[4] = $matches[2];
-		        			break;
-		        		case '6':
-		        			$Passengers[5] = $matches[2];
-		        			break;
-		        		case '8':
-		        			$Passengers[6] = $matches[2];
-		        			break;
-		        		case '9':
-		        			$Passengers[7] = $matches[2];
-		        			break;
-		        		case '10':
-		        			$Passengers[8] = $matches[2];
-		        			break;
-		        		case '11':
-		        			$PassengerList->push($Passengers);
-		        			break;
-		        		case '12':
-		        			//print_r($PassengerList);
-		        			break;        		
-		        	}
-		        }        	
-	    	}
-	    }
-	} else {
-	    // error opening the file.
-	} 
+if (preg_match($exp, $file, $matches) === 1) {
+	$file = $matches[14];
+	$namex = $matches[2];
+	$numero = $matches[4];
+	$fecha = $matches[6];
+	$origen = $matches[8];
+	$destino = $matches[10];
+	$avion = $matches[12];
+} else {
+	echo 'fd';
+}
 
-	fclose($handle);
+$exp = "#(<pasajero>\s*<boleto>\s*)([0-9]+)(\s*</boleto>\s*<nombre>\s*)([a-zA-Z0-9]+)(\s*</nombre>\s*<asiento>\s*)([a-zA-Z0-9]+)(\s*</asiento>\s*</pasajero>)((\n|.)*)#";
+
+$PassengerList  = new SplDoublyLinkedList();
+
+while (preg_match($exp, $file, $matches) == 1) {
+	$boleto = $matches[2];
+			$nombre = $matches[4];
+			$asiento = $matches[6];
+			$file = $matches[8];
+			$Flight = array(0 => $namex, 
+					1 => $numero, 
+					2 => $fecha, 
+					3 => $origen, 
+					4 => $destino, 
+					5 => $avion,
+					6 => $boleto, 
+					7 => $nombre,
+					8 => $asiento);
+			$PassengerList->push($Flight);
+	//echo $numero . " " . $fecha . " " . $origen . " " . $destino . " " . $hora . " " . $precio .  " " . $status; 
+} 
+//print_r($PassengerList);
 ?>
