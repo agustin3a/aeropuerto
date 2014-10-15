@@ -6,7 +6,7 @@ error_reporting(-1);
 	$status = $_POST["status"];
 	$airline = $_POST["stat"];
 	$date =  $_POST["date"];
-	echo $vuelo . " " . $status . " " . $airline;
+	//echo $vuelo . " " . $status . " " . $airline;
 
 	include 'db_connect.php';
 	$query = "SELECT * FROM airlines WHERE code='$airline'";
@@ -24,8 +24,8 @@ error_reporting(-1);
 		$file = $file . '&in_out=in&fecha_in_out=' . $fecha2;
 	}
 
-	echo $file;
-	fopen($file,'r');
+	//echo $file;
+	//fopen($file,'r');
 
 	
 	//header( 'Location: /aeropuerto/vuelos.php' ) ; 	

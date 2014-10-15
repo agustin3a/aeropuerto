@@ -32,7 +32,6 @@
     <h3 class="panel-title">Log in</h3>
   </div>
   <div class="panel-body">
-  <div class="alert alert-danger" role="alert" id="danger"></div>
     <div id="contact_form">
 <form name="contact" action="">
   <fieldset>

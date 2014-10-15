@@ -39,7 +39,7 @@ while($line = pg_fetch_array($result)) {
   }
 
   $file = $link . '/script_lista_vuelos.php?origen=GUA&fecha=' . $fecha . '&type=' . $ex; 
-  echo $file;
+  //echo $file;
   
     if ($ftype == 1) {
     include 'src/parserXML_Vuelos.php';

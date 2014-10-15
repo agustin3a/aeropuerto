@@ -4,7 +4,7 @@
 	  $scope.arrivals = {};
     var poll = function() {
         $timeout(function() {
-            $http.get('/aeropuerto/src/flights.php').
+            $http.get('/aeropuerto/src/flights.php?tipo=1').
 	  				success(function(data) {
 	    			$scope.arrivals = data;
 	  				});
@@ -20,7 +20,7 @@
     $scope.departures = {};
     var poll = function() {
         $timeout(function() {
-            $http.get('/aeropuerto/src/flights.php').
+            $http.get('/aeropuerto/src/flights.php?tipo=2').
 	  				success(function(data) {
 	    			$scope.departures = data;
 	  				});

@@ -1,9 +1,9 @@
 <?php 
 
 	
-	$file = file_get_contents("prueba2.txt");
+	$file = file_get_contents($file);
 
-$exp = "#(<lista_pasajeros>\s*<aerolinea>\s*)([a-zA-z]+)(\s*</aerolinea>\s*<numero>\s*)([0-9]+)(\s*</numero>\s*<fecha>\s*)([0-9]+)(\s*</fecha>\s*<origen>\s*)([a-zA-Z0-9]+)(\s*</origen>\s*<destino>\s*)([a-zA-Z0-9]+)(\s*</destino>\s*<avion>\s*)([a-zA-Z0-9]+)(\s*</avion>\s*)((\n|.)*)(\s*</lista_pasajeros>)#";
+$exp = "#(<lista_pasajeros>\s*<aerolinea>\s*)([a-zA-z0-9]+)(\s*</aerolinea>\s*<numero>\s*)([0-9]+)(\s*</numero>\s*<fecha>\s*)([0-9]+)(\s*</fecha>\s*<origen>\s*)([a-zA-Z0-9]+)(\s*</origen>\s*<destino>\s*)([a-zA-Z0-9]+)(\s*</destino>\s*<avion>\s*)([a-zA-Z0-9]+)(\s*</avion>\s*)((\n|.)*)(\s*</lista_pasajeros>)#";
 
 if (preg_match($exp, $file, $matches) === 1) {
 	$file = $matches[14];
@@ -14,7 +14,7 @@ if (preg_match($exp, $file, $matches) === 1) {
 	$destino = $matches[10];
 	$avion = $matches[12];
 } else {
-	echo 'fd';
+	
 }
 
 $exp = "#(<pasajero>\s*<boleto>\s*)([0-9]+)(\s*</boleto>\s*<nombre>\s*)([a-zA-Z0-9]+)(\s*</nombre>\s*<asiento>\s*)([a-zA-Z0-9]+)(\s*</asiento>\s*</pasajero>)((\n|.)*)#";

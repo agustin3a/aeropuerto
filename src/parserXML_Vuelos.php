@@ -1,15 +1,14 @@
 <?php 
 	
 	
-	$file = file_get_contents("prueba.txt");
+	$file = file_get_contents($file);
 
-$exp = "#(<lista_vuelos>\s*<aerolinea>\s*)([a-zA-z]+)(\s*</aerolinea>)((\n|.)*)(\s*</lista_vuelos>)#";
+$exp = "#(<lista_vuelos>\s*<aerolinea>\s*)([a-zA-z0-9]+)(\s*</aerolinea>)((\n|.)*)(\s*</lista_vuelos>)#";
 
 if (preg_match($exp, $file, $matches) === 1) {
 	$file = $matches[4];
 	$namex = $matches[2];
 } else {
-	echo 'fd';
 }
 
 $exp = "#(<vuelo>\s*<numero>\s*)([0-9]+)(\s*</numero>\s*<fecha>\s*)([0-9]+)(\s*</fecha>\s*<origen>\s*)([a-zA-Z0-9]+)(\s*</origen>\s*<destino>\s*)([a-zA-Z0-9]+)(\s*</destino>\s*<hora>\s*)([0-9]+:[0-9]+)(\s*</hora>\s*<precio>\s*)([0-9]+)(\s*</precio>\s*<status>\s*)([1-3])(\s*</status>\s*</vuelo>)((\n|.)*)#";

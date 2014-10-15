@@ -4,9 +4,9 @@
 ini_set('display_errors',1);
 error_reporting(-1);
 
-$file = file_get_contents("pasajeros.txt");
+$file = file_get_contents($file);
 
-$exp = "#(\{\s*\"lista\_pasajeros\"\s*\:\s*\{\s*\"aerolinea\"\s*:\s*\")([a-zA-Z]+)(\"\s*,\s*\"numero\"\s*:\s*\")([0-9]+)(\"\s*,\s*\"fecha\"\s*:\s*\")([0-9]+)(\"\s*,\s*\"origen\"\s*:\s*\")([a-zA-Z0-9]+)(\"\s*,\s*\"destino\"\s*:\s*\")([a-zA-Z0-9]+)(\"\s*,\s*\"avion\"\s*:\s*\")([a-zA-Z0-9]+)(\"\s*,\s*\"pasajeros\"\s*:\s*\[)((\n|.)*)(\s*\]\s*\}\s*\})#";
+$exp = "#(\{\s*\"lista\_pasajeros\"\s*\:\s*\{\s*\"aerolinea\"\s*:\s*\")([a-zA-Z0-9]+)(\"\s*,\s*\"numero\"\s*:\s*\")([0-9]+)(\"\s*,\s*\"fecha\"\s*:\s*\")([0-9]+)(\"\s*,\s*\"origen\"\s*:\s*\")([a-zA-Z0-9]+)(\"\s*,\s*\"destino\"\s*:\s*\")([a-zA-Z0-9]+)(\"\s*,\s*\"avion\"\s*:\s*\")([a-zA-Z0-9]+)(\"\s*,\s*\"pasajeros\"\s*:\s*\[)((\n|.)*)(\s*\]\s*\}\s*\})#";
 
 if (preg_match($exp, $file, $matches) === 1) {
 	$namex = $matches[2];
@@ -17,7 +17,7 @@ if (preg_match($exp, $file, $matches) === 1) {
 	$avion = $matches[12];
 	$file = $matches[14];
 } else {
-	echo 'fd';
+	
 }
 
 $exp = "#(\s*\"boleto\"\s*:\s*\")([0-9]+)(\"\s*,\s*\"nombre\"\s*:\s*\")([a-zA-Z0-9]+)(\"\s*,\s*\"asiento\"\s*:\s*\")([a-zA-Z0-9]+)(\")#";
@@ -44,9 +44,8 @@ while ($tok !== false) {
 					7 => $nombre,
 					8 => $asiento);
 			$PassengerList->push($Flight);
-			//echo $numero . " " . $fecha . " " . $origen . " " . $destino . " " . $hora . " " . $precio .  " " . $status; 
 		} else {
-			echo 'fd';
+			
 		}
     $tok = strtok("{");
 }

@@ -56,7 +56,7 @@
 				} else {
 					$st = 'JSON';
 				}
-				$file = $link . '/script_listado_pasajeros.php?aerolinea=' . $airline . '&vuelo=' . $vuelo . '&fecha=' . $fecha . '&type=' . $st; 
+				$file = $link . '/script_listado_pasajeros.php?aerolinea=' . $airline . '&vuelo=' . $vuelo . '&fecha=' . $date . '&type=' . $st; 
 				$fecha2 = date("Ymd+hi");
 				if($status == 3) {
 				  $output = $link . '/script_listado_pasajeros.php?aerolinea=' . $airline . '&vuelo=' . $vuelo . '&fecha=' . $fecha . '&boleto=' . $ticket . '&in_out=1&fecha_in_out=' . $fecha2 ; 
@@ -69,6 +69,7 @@
 				} else  {
 					include 'src/parserJSON_Pasajeros.php';
 				}
+				echo $file;
 				$num = $PassengerList->count();
 				echo '<h3>Number of passengers:</h3>';
 				echo '<h4 class="detail">' .  $num  . '</h4>';

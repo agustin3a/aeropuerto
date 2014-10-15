@@ -6,15 +6,15 @@ error_reporting(-1);
 
 	//echo file_get_contents("pruebaJ.txt");
 
-$file = file_get_contents("pruebaJ.txt");
+$file = file_get_contents($file);
 
-$exp = "#(\{\s*\"lista\_vuelos\"\s*\:\s*\{\s*\"aerolinea\"\s*:\s*)(\"[a-zA-z]+\")(\s*,\s*\"vuelos\"\s*:\s*\[)((\n|.)*)(\s*\]\s*\}\s*\})#";
+$exp = "#(\{\s*\"lista\_vuelos\"\s*\:\s*\{\s*\"aerolinea\"\s*:\s*)(\"[a-zA-z0-9]+\")(\s*,\s*\"vuelos\"\s*:\s*\[)((\n|.)*)(\s*\]\s*\}\s*\})#";
 
 if (preg_match($exp, $file, $matches) === 1) {
 	$file = $matches[4];
 	$namex = $matches[2];
 } else {
-	echo 'fd';
+	
 }
 
 $exp = "#(\s*\"numero\"\s*:\s*\")([0-9]+)(\"\s*,\s*\"fecha\"\s*:\s*\")([0-9]+)(\"\s*,\s*\"origen\"\s*:\s*\")([a-zA-Z0-9]+)(\"\s*,\s*\"destino\"\s*:\s*\")([a-zA-Z0-9]+)(\"\s*,\s*\"hora\"\s*:\s*\")([0-9]+:[0-9]+)(\"\s*,\s*\"precio\"\s*:\s*\")([0-9]+)(\"\s*,\s*\"status\"\s*:\s*\")([1-3])(\")#";
@@ -46,7 +46,7 @@ while ($tok !== false) {
 			$FlightList->push($Flight);
 			//echo $numero . " " . $fecha . " " . $origen . " " . $destino . " " . $hora . " " . $precio .  " " . $status; 
 		} else {
-			echo 'fd';
+			
 		}
     $tok = strtok("{");
 }

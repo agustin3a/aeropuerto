@@ -1,6 +1,7 @@
 <?php
-header('Content-Type: text/event-stream');
-header('Cache-Control: no-cache');
+
+$tipo = $_GET["tipo"];
+
 $arr = array();
 include 'db_connect.php';
 
@@ -19,7 +20,12 @@ while($line = pg_fetch_array($result)) {
   } else {
     $ex = 'JSON';
   }
+  if($tipo == 1) {
   $file = $link . '/script_lista_vuelos.php?destino=GUA&fecha=' . $fecha . '&type=' . $ex; 
+} else {
+	$file = $link . '/script_lista_vuelos.php?origen=GUA&fecha=' . $fecha . '&type=' . $ex; 
+}
+  
   if ($ftype == 1) {
   include 'parserXML_Vuelos.php';
   } else  {
@@ -45,5 +51,4 @@ while($line = pg_fetch_array($result)) {
 	}
 }
 echo json_encode($arr);
-flush();
 ?>
