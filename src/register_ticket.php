@@ -30,9 +30,9 @@ $file = $link . '/script_listado_pasajeros.php?aerolinea=' . $airline . '&vuelo=
 
 $fecha2 = date("Ymd+hi");
 if($status == 3) {
-  $output = $link . '/script_listado_pasajeros.php?aerolinea=' . $airline . '&vuelo=' . $vuelo . '&fecha=' . $fecha . '&boleto=' . $ticket . '&in_out=out&fecha_in_out=' . $fecha2 ; 
+  $output = $link . '/script_aborda_baja.php?aerolinea=' . $airline . '&vuelo=' . $vuelo . '&fecha=' . $fecha . '&boleto=' . $ticket . '&in_out=out&fecha_in_out=' . $fecha2 ; 
 } else {
-  $output = $link . '/script_listado_pasajeros.php?aerolinea=' . $airline . '&vuelo=' . $vuelo . '&fecha=' . $fecha . '&boleto=' . $ticket . '&in_out=in&fecha_in_out=' . $fecha2 ; 
+  $output = $link . '/script_aborda_baja.php?aerolinea=' . $airline . '&vuelo=' . $vuelo . '&fecha=' . $fecha . '&boleto=' . $ticket . '&in_out=in&fecha_in_out=' . $fecha2 ; 
 }
 
 //echo $output;
@@ -54,15 +54,16 @@ while(($PassengerList->count() != 0) && $salir){
 	$t = $Passengers[6];
 	$n = $Passengers[7];
 	$s = $Passengers[8];
-	if($ticket == $t) {
+	if($ticket === $t) {
 		$salir = false;
+		$match = 2;
 	} else {
 		$match = 3;
 	}
 }
-
-		if($n == $name) {
-			if($s == $seat) {
+if($match === 2) {
+		if($n === $name) {
+			if($s === $seat) {
 				$match = 2;
 			} else {
 				$match = 7;
@@ -70,6 +71,7 @@ while(($PassengerList->count() != 0) && $salir){
 		} else {
 			$match = 5;
 		}
+}
 	
 
 if($match == 2) {
@@ -78,6 +80,8 @@ if($match == 2) {
 	if(pg_num_rows($result) == 0){
 		$query = "INSERT INTO passenger(ticket,name,passport,bag,seat,code,flight) VALUES('$ticket','$name','$passport',$bag,$seat,'$airline','$vuelo')";
 	$result = pg_query($conexion,$query) or die(pg_last_error($conexion)) ;
+	$os = fopen($output);
+	fclose($os);
 	} else {
 		$match = 4;
 	}

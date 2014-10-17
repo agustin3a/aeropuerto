@@ -1,12 +1,8 @@
 <?php 
 
-	ini_set('display_startup_errors',1);
-ini_set('display_errors',1);
-error_reporting(-1);
-
 $file = file_get_contents($file);
 
-$exp = "#(\{\s*\"lista\_pasajeros\"\s*\:\s*\{\s*\"aerolinea\"\s*:\s*\")([a-zA-Z0-9]+)(\"\s*,\s*\"numero\"\s*:\s*\")([0-9]+)(\"\s*,\s*\"fecha\"\s*:\s*\")([0-9]+)(\"\s*,\s*\"origen\"\s*:\s*\")([a-zA-Z0-9]+)(\"\s*,\s*\"destino\"\s*:\s*\")([a-zA-Z0-9]+)(\"\s*,\s*\"avion\"\s*:\s*\")([a-zA-Z0-9]+)(\"\s*,\s*\"pasajeros\"\s*:\s*\[)((\n|.)*)(\s*\]\s*\}\s*\})#";
+$exp = "#(\{\s*\"lista_pasajeros\"\s*\:\s*\{\s*\"aerolinea\"\s*:\s*\")([a-zA-Z0-9]+)(\"\s*,\s*\"numero\"\s*:\s*\")([0-9]+)(\"\s*,\s*\"fecha\"\s*:\s*\")([0-9]+)(\"\s*,\s*\"origen\"\s*:\s*\")([a-zA-Z0-9]+)(\"\s*,\s*\"destino\"\s*:\s*\")([a-zA-Z0-9]+)(\"\s*,\s*\"avion\"\s*:\s*\")([a-zA-Z0-9]+)(\"\s*,\s*\"pasajeros\"\s*:\s*\[)((\n|.)*)(\s*\]\s*\}\s*\})#";
 
 if (preg_match($exp, $file, $matches) === 1) {
 	$namex = $matches[2];

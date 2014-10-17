@@ -36,7 +36,5 @@ while (preg_match($exp, $file, $matches) == 1) {
 					7 => $nombre,
 					8 => $asiento);
 			$PassengerList->push($Flight);
-	//echo $numero . " " . $fecha . " " . $origen . " " . $destino . " " . $hora . " " . $precio .  " " . $status; 
 } 
-//print_r($PassengerList);
 ?>

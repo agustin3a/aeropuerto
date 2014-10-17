@@ -1,4 +1,0 @@
- {"lista_vuelos" : {"aerolinea": "TACA", "vuelos" :[{"numero":"7745", "fecha":"20140928", "origen":"GUA", "destino":"MIA", "hora":"16:00" ,"precio":"200","status":"1"}, {  
- "numero":"778","fecha":"20140929","origen": 
-"GUA","destino":"R1R","hora":"01:00","precio":"500","status":"2"},
-{"numero":"778","fecha":"20140929","origen" :"GUA","destino":"MIA","hora":"01:00","precio":"500","status":"2"},{   "numero":"778","fecha":"20140929","origen": "GUA","destino":"R1R","hora":"01:00","precio":"500","status":"3"}]}}

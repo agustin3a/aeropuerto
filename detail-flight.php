@@ -69,7 +69,7 @@
 				} else  {
 					include 'src/parserJSON_Pasajeros.php';
 				}
-				echo $file;
+				//echo $file;
 				$num = $PassengerList->count();
 				echo '<h3>Number of passengers:</h3>';
 				echo '<h4 class="detail">' .  $num  . '</h4>';

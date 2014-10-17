@@ -1,7 +1,4 @@
 <?php
-ini_set('display_startup_errors',1);
-ini_set('display_errors',1);
-error_reporting(-1);
 	$vuelo = $_POST["vuelo"];
 	$status = $_POST["status"];
 	$airline = $_POST["stat"];
@@ -25,10 +22,11 @@ error_reporting(-1);
 	}
 
 	//echo $file;
-	//fopen($file,'r');
+	$file =fopen($file,'r');
+		fclose($file);
 
 	
-	//header( 'Location: /aeropuerto/vuelos.php' ) ; 	
+	header( 'Location: /aeropuerto/vuelos.php' ) ; 	
 
 
 ?>
